@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+logging:
+  level:
+    org.springframework.cloud: 'DEBUG'
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/santosh3702/configserver-repo.git
+          searchPaths: "*"
+          
+security:
+  basic:
+    enabled: true
+  user:
+    name: config_client
+    password: ${config.password}
+
+management:
+  security:
+    enabled: false
